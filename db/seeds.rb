@@ -5,3 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+inventory1 = Inventory.create(serial_number: 1, wheel_size:1 ,description: 'desc1')
+inventory2 = Inventory.create(serial_number: 1, wheel_size:10 ,description: 'desc1')
