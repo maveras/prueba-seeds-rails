@@ -8,7 +8,12 @@ class WorkTest < ActiveSupport::TestCase
     @work = works(:one)
   end
 
-  test "getresponsable of work" do
-    assert_equal @work.worker, worker(:one)
+  #test "get responsable of work" do
+   # assert_equal @work.user, user(:one)
+  #end
+
+  test "no relationship by items" do
+  	relation = Work.no_item.map(&:inventory_id)
+  	assert_includes(relation, nil)
   end
 end
