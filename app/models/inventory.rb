@@ -8,7 +8,7 @@ class Inventory < ActiveRecord::Base
   	after_destroy :destroy 
 
 	def destroy
-  		r = Register.new(description: "La pieza con serial #{serial} ha sido borrada")
+  		r = Register.new(description: "La pieza con serial #{serial_number} ha sido borrada")
   		r.save
   	end
 end

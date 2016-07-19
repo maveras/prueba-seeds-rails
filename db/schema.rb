@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719014349) do
+ActiveRecord::Schema.define(version: 20160719051433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(version: 20160719014349) do
     t.text     "description"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "category_id"
   end
+
+  add_index "inventories", ["category_id"], name: "index_inventories_on_category_id", using: :btree
 
   create_table "registers", force: :cascade do |t|
     t.text     "description"
@@ -54,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160719014349) do
   add_index "works", ["inventory_id"], name: "index_works_on_inventory_id", using: :btree
   add_index "works", ["user_id"], name: "index_works_on_user_id", using: :btree
 
+  add_foreign_key "inventories", "categories"
   add_foreign_key "works", "inventories"
   add_foreign_key "works", "users"
 end
